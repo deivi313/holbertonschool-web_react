@@ -1,22 +1,26 @@
-import React from 'react'
-import './App.css'
-import logo from './assets/holberton-logo.jpg'
+import logo from "./assets/holberton-logo.jpg";
 
-function App() {
+import "./App.css";
+
+const App = () => {
+  const date = new Date();
+
   return (
     <>
-      <div className='App-header'>
+      <div className="App-header">
         <img src={logo} alt="holberton logo" />
-        <h1 style={{ color: '#e1003c' }} >School dashboard</h1>
-      </div >
-      <div className="App-body">
-        Login to access the full dashboard
+        <h1 style={{ color: "#e1003c" }}>School dashboard</h1>
       </div>
+
+      <div className="App-body">
+        <p>Login to access the full dashboard</p>
+      </div>
+
       <div className="App-footer">
-        Copyright 2026 - holberton School
+        <p>Copyright {date.getFullYear()} - holberton School</p>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
