@@ -23,3 +23,24 @@ test("renders an image", () => {
   const image = screen.getByAltText(/holberton logo/i);
   expect(image).toBeInTheDocument();
 });
+
+test("renders 2 label elements with the text Email and Password", () => {
+  render(<App />);
+  const emailLabel = screen.getByText(/email/i);
+  const passwordLabel = screen.getByText(/password/i);
+
+  expect(emailLabel).toBeInTheDocument();
+  expect(passwordLabel).toBeInTheDocument();
+});
+
+test("renders 2 input elements for email and password", () => {
+  render(<App />);
+  const inputElements = screen.getAllByLabelText(/email|password/i);
+  expect(inputElements).toHaveLength(2);
+});
+
+test("renders a button with the text 'OK'", () => {
+  render(<App />);
+  const button = screen.getByRole("button", { name: /ok/i });
+  expect(button).toBeInTheDocument();
+});
