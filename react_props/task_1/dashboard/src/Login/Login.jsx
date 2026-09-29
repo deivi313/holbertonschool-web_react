@@ -1,20 +1,20 @@
-import React from 'react'
-import './Login.css'
+import React from 'react';
+import './Login.css';
 
 function Login() {
   return (
     <div className="App-body">
-      <p> Login to access the full dashboard</p>
+      <p>Login to access the full dashboard</p>
 
-      <label for="email">Email Address:</label>
-      <input type="email" id="email"></input>
+      <label htmlFor="email">Email:</label>
+      <input type="email" id="email" name="email" />
 
-      <label for="password">Password:</label>
-      <input type="password" id="password"></input>
+      <label htmlFor="password">Password:</label>
+      <input type="password" id="password" name="password" />
 
-      <button type="submit">Ok</button>
+      <button type="button">OK</button>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
