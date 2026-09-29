@@ -26,7 +26,7 @@ describe("Notifications component", () => {
   });
 
   test("logs message when close button is clicked", () => {
-    const consoleSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+    const consoleSpy = jest.spyOn(console, "log").mockImplementation(() => { });
 
     render(<Notifications />);
 
