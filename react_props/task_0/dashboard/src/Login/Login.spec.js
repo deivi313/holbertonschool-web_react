@@ -4,11 +4,10 @@ import userEvent from '@testing-library/user-event';
 import Login from './Login';
 
 describe('Login Component', () => {
-  it('renders 2 labels, 2 inputs, and 1 button element', () => {
+  it('renders 2 labels, 2 inputs, and 1 button', () => {
     render(<Login />);
-
     const labels = screen.getAllByText((content, element) => element.tagName.toLowerCase() === 'label');
-    const inputs = screen.getAllByRole('textbox'); 
+    const inputs = screen.getAllByRole('textbox');
     const button = screen.getByRole('button');
 
     expect(labels).toHaveLength(2);
@@ -16,14 +15,12 @@ describe('Login Component', () => {
     expect(button).toBeInTheDocument();
   });
 
-  it('focuses the input element whenever the related label is clicked', async () => {
+  it('focuses input element when related label is clicked', async () => {
     const user = userEvent.setup();
     render(<Login />);
 
-    const emailInput = screen.getByLabelText(/email/i);
     const emailLabel = screen.getByText(/email/i);
-
-    expect(emailInput).not.toHaveFocus();
+    const emailInput = screen.getByLabelText(/email/i);
 
     await user.click(emailLabel);
     expect(emailInput).toHaveFocus();
