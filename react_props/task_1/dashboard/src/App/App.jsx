@@ -6,12 +6,12 @@ import Header from "../Header/Header.jsx";
 
 function App() {
   return (
-    <>
+    <Fragment>
       <Notifications />
       <Header />
       <Login />
       <Footer />
-    </>
+    </Fragment>
   );
 }
 

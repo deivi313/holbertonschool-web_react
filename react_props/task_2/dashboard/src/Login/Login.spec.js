@@ -8,7 +8,7 @@ describe('Login Component', () => {
     render(<Login />);
 
     const labels = screen.getAllByText((content, element) => element.tagName.toLowerCase() === 'label');
-    const inputs = screen.getAllByRole('textbox', { hidden: true });
+    const inputs = screen.getAllByRole('textbox', { hidden: true }); // includes type="email"
     const passwordInput = screen.getByLabelText(/password/i);
     const button = screen.getByRole('button');
 
