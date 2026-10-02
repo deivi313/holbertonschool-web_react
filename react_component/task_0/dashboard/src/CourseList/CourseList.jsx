@@ -1,28 +1,36 @@
-import React from 'react'
-import "./CourseList.css"
-import CourseListRow from './CourseListRow'
-const CourseList = ({ courses = [] }) => {
+import "./CourseList.css";
+import CourseListRow from "./CourseListRow.jsx";
+
+function CourseList({ courses }) {
+  const safeCourses = courses ?? [];
+
+  if (safeCourses.length === 0) {
     return (
-        <table id={"CourseList"} className='course-list'>
-            {courses.length > 0 ? (
-                <>
-                    <thead>
-                        <CourseListRow isHeader={true} textFirstCell={"Available courses"} />
-                        <CourseListRow isHeader={true} textFirstCell={"Course Name"} textSecondCell="Credit" />
-                    </thead>
-                    <tbody>
-                        {courses.map(course => (
-                            <CourseListRow key={course.id} textFirstCell={course.name} textSecondCell={course.credit} />
-                        ))}
-                    </tbody>
-                </>
-            ) : (
-                <tbody className='no-courses'>
-                    <tr><td>No course available yet</td></tr>
-                </tbody>
-            )}
-        </table>
-    )
+      <table id="CourseList">
+        <tbody>
+          <CourseListRow isHeader={true} textFirstCell="No course available yet" />
+        </tbody>
+      </table>
+    );
+  }
+
+  return (
+    <table id="CourseList">
+      <thead>
+        <CourseListRow isHeader={true} textFirstCell="Available courses" />
+        <CourseListRow isHeader={true} textFirstCell="Course name" textSecondCell="Credit" />
+      </thead>
+      <tbody>
+        {safeCourses.map((course) => (
+          <CourseListRow
+            key={course.id}
+            textFirstCell={course.name}
+            textSecondCell={course.credit}
+          />
+        ))}
+      </tbody>
+    </table>
+  );
 }
 
-export default CourseList
+export default CourseList;

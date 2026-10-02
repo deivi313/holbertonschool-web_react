@@ -1,26 +1,25 @@
-import React from 'react'
-import "./CourseList.css"
-
-const CourseListRow = ({ isHeader = false, textFirstCell = '', textSecondCell = null }) => {
+function CourseListRow({ isHeader = false, textFirstCell = "", textSecondCell = null }) {
+  if (isHeader) {
     return (
-        <tr>
-            {isHeader ? (
-                textSecondCell === null ? (
-                    <th className='table-cell' colSpan={2}>{textFirstCell}</th>
-                ) : (
-                    <>
-                        <th className='table-cell' >{textFirstCell}</th>
-                        <th className='table-cell'>{textSecondCell}</th>
-                    </>
-                )
-            ) : (
-                <>
-                    <td className='table-cell'>{textFirstCell}</td>
-                    <td className='table-cell' >{textSecondCell}</td>
-                </>
-            )}
-        </tr>
-    )
+      <tr>
+        {textSecondCell === null ? (
+          <th colSpan={2}>{textFirstCell}</th>
+        ) : (
+          <>
+            <th>{textFirstCell}</th>
+            <th>{textSecondCell}</th>
+          </>
+        )}
+      </tr>
+    );
+  }
+
+  return (
+    <tr>
+      <td>{textFirstCell}</td>
+      <td>{textSecondCell}</td>
+    </tr>
+  );
 }
 
-export default CourseListRow
+export default CourseListRow;
